@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Aboutus extends Model
+class Aboutus extends Model implements HasMedia
 {
     use HasFactory;
-    protected $fillable = ['title','description','image','cover_image'];
+    use InteractsWithMedia;
+    protected $fillable = ['title','description'];
 }

@@ -18,5 +18,6 @@ return [
     'priority.unique' => 'الترتيب موجود بالفعل.',
     'role.dependents' => 'يجب عليك حذف كل ما يخص هذه المجموعة اولا ثم قم بحذفها.',
     'image.required' => 'الصورة مطلوبة.',
-    'description.required' => 'البيان مطلوب.'
+    'description.required' => 'البيان مطلوب.',
+    'title.required'=>'العنوان مطلوب'
 ];

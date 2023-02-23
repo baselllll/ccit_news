@@ -14,11 +14,16 @@
 @section('content')
     <div class="layout-px-spacing">
         <div class="middle-content container-xxl p-0">
+            @can('create_admin')
+                <button
+                    id="createAbout"
+                    class="btn btn-primary btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light float-end"><i class="far fa-plus-square"></i> @lang('dashboard.add')</button>
+           @endcan
         <!-- BREADCRUMB -->
             <div class="page-meta">
                 <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item fw-bolder">@lang('dashboard.contacts')</li>
+                        <li class="breadcrumb-item fw-bolder">@lang('dashboard.about')</li>
                     </ol>
                 </nav>
             </div>
@@ -26,29 +31,33 @@
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                     <div class="widget-content widget-content-area br-8" style="padding: 23px;">
-                        <table id="contact" class="table dt-table-hover" style="width:100%">
+                        <table id="about" class="table dt-table-hover" style="width:100%">
                             <thead>
                             <tr>
-                                <th>@lang('dashboard.contact_name')</th>
-                                <th>@lang('dashboard.contact_email')</th>
-                                <th>@lang('dashboard.contact_phone')</th>
-                                <th>@lang('dashboard.contact_description')</th>
+                                <th>@lang('dashboard.about_title')</th>
+                                <th>@lang('dashboard.about_description')</th>
+                                <th>@lang('dashboard.about_image')</th>
                                 <th class="no-content"></th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($contact_data as $row)
+                            @foreach($about_data as $row)
                                 <tr>
-                                    <td>{{$row->name}}</td>
-                                    <td>{{$row->email}}</td>
-                                    <td>{{$row->phone}}</td>
+                                    <td>{{$row->title}}</td>
                                     <td>{{$row->description}}</td>
                                     <td>
+                                        <img width="120px" height="120px"  src="{{$row->getMedia('about_images')[0]->getUrl()}}" class="img-thumbnail" alt="...">
+                                    </td>
+                                    <td>
                                         <div class="action-btns">
-                                            <a href="{{route('admin.contact.delete',['id'=>$row->id])}}" class="action-btn btn-delete bs-tooltip" data-toggle="tooltip" data-placement="top" title="@lang('dashboard.contact_delete')" data-bs-original-title="حذف">
+                                            <a href="{{route('admin.about.delete',['id'=>$row->id])}}" class="action-btn btn-delete bs-tooltip" data-toggle="tooltip" data-placement="top" title="@lang('dashboard.contact_delete')" data-bs-original-title="حذف">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                                             </a>
+                                            <a id="editAbout" href="{{route('admin.about.update',['id'=>$row->id])}}"  class="action-btn btn-edit bs-tooltip me-2" data-toggle="tooltip" data-placement="top" title="{{__('dashboard.about_edit')}}" data-bs-original-title="تعديل">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                                            </a>
                                         </div>
+                                        @include('admin.modals.about.edit',['about_data' => $row])
                                     </td>
                                 </tr>
                             @endforeach
@@ -58,6 +67,7 @@
                 </div>
             </div>
         </div>
+        @include('admin.modals.about.create')
     </div>
 @endsection
 @section('scripts')
@@ -67,7 +77,7 @@
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script>
         $(document).ready(function () {
-            $('#contact').DataTable({
+            $('#about').DataTable({
                 language: {
                     'paginate': {
                         'previous': '<span class="prev-icon"></span>',
@@ -79,6 +89,7 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.10.15/pagination/input.js"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+    <script src="{{ asset('dashboard/src/assets/js/ajax/about.js')}}"></script>
 @endpush

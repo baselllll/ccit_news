@@ -35,5 +35,10 @@ return [
     'contact_phone'=>'رقم تليفون',
     'contact_description'=>'وصف',
     'contact_delete'=>'حذف',
-    'contacts'=>'اتصل بنا'
+    'contacts'=>'اتصل بنا',
+    'about'=>'من نجن',
+    'about_title'=>'عنوان',
+    'about_description'=>'وصف',
+    'about_image'=>'صورة',
+    'about_edit'=>'تعديل',
 ];
