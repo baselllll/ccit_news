@@ -41,4 +41,9 @@ return [
     'about_description'=>'وصف',
     'about_image'=>'صورة',
     'about_edit'=>'تعديل',
+    'support'=>'الشركاء',
+    'support_name'=>'اسم',
+    'support_description'=>'وصف',
+    'support_image'=>'صورة',
+    'support_edit'=>'تعديل',
 ];

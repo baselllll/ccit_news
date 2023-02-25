@@ -55,8 +55,8 @@
                             @endcan
 
                             @can('list_admin')
-                                <li class="@if(in_array(request()->url() , [route('admin.roles.index') ])) active @endif">
-                                    <a href="{{ route('admin.roles.index') }}" >الداعمين</a>
+                                <li class="@if(in_array(request()->url() , [route('admin.support.index') ])) active @endif">
+                                    <a href="{{ route('admin.support.index') }}" >الداعمين</a>
                                 </li>
                             @endcan
 

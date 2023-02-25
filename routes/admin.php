@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GeneralSettingsController;
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\SupporterController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -109,6 +110,20 @@ Route::group(['prefix'=>RouteServiceProvider::ADMIN], function (){
             Route::get('delete/{id}',[AboutUsController::class, 'delete'])
                 ->middleware('permission:delete_admin')
                 ->name('admin.about.delete');
+        });
+        Route::group(['prefix'=>'support'], function (){
+            Route::get('index',[SupporterController::class, 'index'])
+                ->middleware('permission:list_admin')
+                ->name('admin.support.index');
+            Route::post('store',[SupporterController::class, 'store'])
+                ->middleware('permission:edit_admin')
+                ->name('admin.support.store');
+            Route::post('update',[SupporterController::class, 'update'])
+                ->middleware('permission:edit_admin')
+                ->name('admin.support.update');
+            Route::get('delete/{id}',[SupporterController::class, 'delete'])
+                ->middleware('permission:delete_admin')
+                ->name('admin.support.delete');
         });
 
     });

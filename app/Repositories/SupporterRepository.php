@@ -2,11 +2,12 @@
 
 namespace App\Repositories;
 use App\Models\Aboutus;
+use App\Models\Supporter;
 use Illuminate\Support\Arr;
 
-class AboutUsRepository
+class SupporterRepository
 {
-    public function __construct(Aboutus $repo)
+    public function __construct(Supporter $repo)
     {
         $this->repo = $repo;
     }
@@ -22,30 +23,29 @@ class AboutUsRepository
         return $record;
     }
     public function store(array $data){
-        $support = $this->repo->create([
-            "title"=>Arr::get($data,'title'),
-            "description"=>Arr::get($data,'description'),
+        $about = $this->repo->create([
             "name"=>Arr::get($data,'name'),
+            "description"=>Arr::get($data,'description'),
         ]);
         if (!is_null($file = Arr::get($data, 'image'))) {
-            $support->addMedia($file)
+            $about->addMedia($file)
                 ->preservingOriginal()
-                ->toMediaCollection('about_images');
+                ->toMediaCollection('support_images');
         }
-        return $support;
+        return $about;
     }
     public function udpate(array $data){
-        $support_record = $this->repo->find(Arr::get($data,'id'));
-        $support = $support_record->update([
-            "title"=>Arr::get($data,'title'),
+        $about_record = $this->repo->find(Arr::get($data,'id'));
+        $about = $about_record->update([
+            "name"=>Arr::get($data,'name'),
             "description"=>Arr::get($data,'description')
         ]);
         if (!is_null($file = Arr::pull($data, 'image', null))) {
-            $support_record->clearMediaCollection('about_images');
-            $support_record->addMedia($file)
+            $about_record->clearMediaCollection('support_images');
+            $about_record->addMedia($file)
                 ->preservingOriginal()
-                ->toMediaCollection('about_images');
+                ->toMediaCollection('support_images');
         }
-        return $support;
+        return $about;
     }
 }
