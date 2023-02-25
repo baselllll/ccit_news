@@ -46,4 +46,5 @@ return [
     'support_description'=>'وصف',
     'support_image'=>'صورة',
     'support_edit'=>'تعديل',
+
 ];
