@@ -47,8 +47,8 @@
                         </div>
                         <div class="col-md-12 mb-4">
                             <img width="120px" height="120px"  src="{{$row->getMedia('about_images')[0]->getUrl()}}" class="img-thumbnail" alt="...">
-
                             <div/>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

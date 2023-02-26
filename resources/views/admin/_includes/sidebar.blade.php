@@ -39,8 +39,8 @@
                     </a>
                     <ul class="collapse submenu list-unstyled @if(in_array(request()->url() , [route('admin.admins.index'), route('admin.roles.index') ])) show @endif" id="admins" data-bs-parent="#accordionExample">
                         @can('list_admin')
-                            <li class="@if(in_array(request()->url() , [route('admin.admins.index') ])) active @endif">
-                                <a href="{{ route('admin.admins.index') }}">الفئات</a>
+                            <li class="@if(in_array(request()->url() , [route('admin.category.index') ])) active @endif">
+                                <a href="{{ route('admin.category.index') }}">الفئات</a>
                             </li>
                         @endcan
                         @can('list_admin')

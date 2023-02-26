@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminRoleController;
 use App\Http\Controllers\Admin\AdminsController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\GeneralSettingsController;
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\ContactUsController;
@@ -102,7 +103,7 @@ Route::group(['prefix'=>RouteServiceProvider::ADMIN], function (){
                 ->middleware('permission:list_admin')
                 ->name('admin.about.index');
             Route::post('store',[AboutUsController::class, 'store'])
-                ->middleware('permission:edit_admin')
+                ->middleware('permission:create_admin')
                 ->name('admin.about.store');
             Route::post('update',[AboutUsController::class, 'update'])
                 ->middleware('permission:edit_admin')
@@ -116,7 +117,7 @@ Route::group(['prefix'=>RouteServiceProvider::ADMIN], function (){
                 ->middleware('permission:list_admin')
                 ->name('admin.support.index');
             Route::post('store',[SupporterController::class, 'store'])
-                ->middleware('permission:edit_admin')
+                ->middleware('permission:create_admin')
                 ->name('admin.support.store');
             Route::post('update',[SupporterController::class, 'update'])
                 ->middleware('permission:edit_admin')
@@ -124,6 +125,20 @@ Route::group(['prefix'=>RouteServiceProvider::ADMIN], function (){
             Route::get('delete/{id}',[SupporterController::class, 'delete'])
                 ->middleware('permission:delete_admin')
                 ->name('admin.support.delete');
+        });
+        Route::group(['prefix'=>'category'], function (){
+            Route::get('index',[CategoryController::class, 'index'])
+                ->middleware('permission:list_admin')
+                ->name('admin.category.index');
+            Route::post('store',[CategoryController::class, 'store'])
+                ->middleware('permission:create_admin')
+                ->name('admin.category.store');
+            Route::post('update',[CategoryController::class, 'update'])
+                ->middleware('permission:edit_admin')
+                ->name('admin.category.update');
+            Route::get('delete/{id}',[CategoryController::class, 'delete'])
+                ->middleware('permission:delete_admin')
+                ->name('admin.category.delete');
         });
 
     });

@@ -19,5 +19,9 @@ return [
     'role.dependents' => 'يجب عليك حذف كل ما يخص هذه المجموعة اولا ثم قم بحذفها.',
     'image.required' => 'الصورة مطلوبة.',
     'description.required' => 'البيان مطلوب.',
-    'title.required'=>'العنوان مطلوب'
+    'title.required'=>'العنوان مطلوب',
+    'content.required'=>'المحتوى مطلوب',
+    'type.required'=>'النوع مطلوب',
+    'video_link.required'=>'لينك الفيديو مطلوب',
+    'image_link.required'=>' الصورة مطلوب',
 ];

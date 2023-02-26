@@ -46,5 +46,12 @@ return [
     'support_description'=>'وصف',
     'support_image'=>'صورة',
     'support_edit'=>'تعديل',
+    'category'=>'الفئات',
+    'category_title'=>'عنوان',
+    'category_content'=>'محتوى',
+    'category_type'=>'نوع',
+    'category_image'=>'صورة',
+    'category_video'=>'فيديو',
+    'category_edit'=>'تعديل',
 
 ];
