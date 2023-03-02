@@ -17,6 +17,7 @@
     <link href="{{ asset('dashboard/src/plugins/src/animate/animate.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('dashboard/src/assets/css/light/components/modal.css')}}" rel="stylesheet" type="text/css" />
     <link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
     <!-- END GLOBAL MANDATORY STYLES -->
     <style>
         .dataTables_paginate {

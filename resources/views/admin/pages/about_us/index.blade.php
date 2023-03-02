@@ -31,7 +31,7 @@
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                     <div class="widget-content widget-content-area br-8" style="padding: 23px;">
-                        <table id="about" class="table dt-table-hover" style="width:100%">
+                        <table id="about" style="width:100%">
                             <thead>
                             <tr>
                                 <th>@lang('dashboard.about_title')</th>

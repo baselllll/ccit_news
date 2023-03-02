@@ -31,7 +31,7 @@
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                     <div class="widget-content widget-content-area br-8" style="padding: 23px;">
-                        <table id="category" class="table dt-table-hover" style="width:100%">
+                        <table id="category"  style="width:100%">
                             <thead>
                             <tr>
                                 <th>@lang('dashboard.category_title')</th>
@@ -46,7 +46,7 @@
                             @foreach($category_data as $row)
                                 <tr>
                                     <td>{{$row->title}}</td>
-                                    <td>{{$row->content}}</td>
+                                    <td><div>{{$row->content}}</div></td>
                                     <td>{{$row->type}}</td>
                                     <td>
                                         @if(isset($row->media))

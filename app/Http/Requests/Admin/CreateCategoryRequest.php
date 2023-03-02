@@ -25,7 +25,7 @@ class CreateCategoryRequest extends FormRequest
     {
         return [
             "title"=>"required",
-            "content"=>"required",
+            "content"=>"",
             "type"=>"required",
             "image_link"=>"required",
             "video_link"=>"required",
