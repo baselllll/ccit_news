@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\GeneralSetting;
 use App\Services\FileService;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -16,7 +17,7 @@ class GeneralSettingRepository
 
     public function fetchSettings()
     {
-        return $this->generalSetting->first();
+        return $this->generalSetting->with('media')->first();
     }
 
     public function update(array $data)
@@ -30,6 +31,12 @@ class GeneralSettingRepository
         try {
             $settings = $this->fetchSettings();
             $settings->update($data);
+            if (!is_null($file = Arr::pull($data, 'image', null))) {
+                $settings->clearMediaCollection('settings_images');
+                $settings->addMedia($file)
+                    ->preservingOriginal()
+                    ->toMediaCollection('settings_images');
+            }
             DB::commit();
         }catch (\Exception $exception)
         {
@@ -37,6 +44,7 @@ class GeneralSettingRepository
             Log::error($exception);
             throw new \Exception($exception->getMessage());
         }
+
         return $settings;
     }
 

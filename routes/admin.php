@@ -136,6 +136,7 @@ Route::group(['prefix'=>RouteServiceProvider::ADMIN], function (){
             Route::post('update',[CategoryController::class, 'update'])
                 ->middleware('permission:edit_admin')
                 ->name('admin.category.update');
+
             Route::get('delete/{id}',[CategoryController::class, 'delete'])
                 ->middleware('permission:delete_admin')
                 ->name('admin.category.delete');

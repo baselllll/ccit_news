@@ -14,9 +14,8 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-12">
                     <div class="logo">
-                        <a href="index.html">
-                            <img class="dark-logo" src="assets/images/logo/logo-black.png" alt="Blogar logo">
-                            <img class="light-logo" src="assets/images/logo/logo-white2.png" alt="Blogar logo">
+                        <a>
+                            <img class="dark-logo" src="{{$setting->getMedia('settings_images')[0]->getUrl()}}" alt="Blogar logo">
                         </a>
                     </div>
                 </div>
@@ -61,7 +60,7 @@
                                                                     <div class="col-lg-3">
                                                                         <div class="content-block image-rounded">
                                                                             <div class="post-thumbnail mb--20">
-                                                                                <a href="post-details.html">
+                                                                                <a>
                                                                                     <img class="img-thumbnail"  src="{{$item->getMedia('category_images')[0]->getUrl()}}" alt="Post Images">
                                                                                 </a>
                                                                             </div>
@@ -75,7 +74,7 @@
                                                                                         </a>
                                                                                     </div>
                                                                                 </div>
-                                                                                <h5 class="title"><a href="post-details.html">{{$item->title}}</a></h5>
+                                                                                <h5 class="title"><a href="">{{$item->title}}</a></h5>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -151,10 +150,10 @@
                 </li>
                 <li class="menu-item-has-children"><a href="#">Categories</a>
                     <ul class="axil-submenu">
-                        <li><a href="post-details.html">Accessibility</a></li>
-                        <li><a href="post-details.html">Android Dev</a></li>
-                        <li><a href="post-details.html">Accessibility</a></li>
-                        <li><a href="post-details.html">Android Dev</a></li>
+                        <li><a href="">Accessibility</a></li>
+                        <li><a href="">Android Dev</a></li>
+                        <li><a href="">Accessibility</a></li>
+                        <li><a href="">Android Dev</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children"><a href="#">Post Format</a>
@@ -205,7 +204,7 @@
                                 <div class="content-block">
                                     <!-- Start Post Thumbnail  -->
                                     <div class="post-thumbnail">
-                                        <a href="post-details.html">
+                                        <a href="">
                                             <img src="{{$item->getMedia('category_images')[0]->getUrl()}}" alt="Post Images">
                                         </a>
                                     </div>
@@ -284,7 +283,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <h4 class="title"><a href="post-details.html">{{$item->title}}</a></h4>
+                                <h4 class="title"><a href="">{{$item->title}}</a></h4>
                                 <div class="post-meta">
 
                                     <div class="content">
@@ -303,7 +302,7 @@
                                 </div>
                             </div>
                             <div class="post-thumbnail">
-                                <a href="post-details.html">
+                                <a href="">
                                     <img src="{{$item->getMedia('category_images')[0]->getUrl()}}" alt="Post Images">
                                 </a>
                             </div>
@@ -345,7 +344,7 @@
                                                             </a>
                                                         </div>
                                                     </div>
-                                                    <h3 class="title"><a href="post-details.html">{{$item->title}}</a></h3>
+                                                    <h3 class="title"><a href="">{{$item->title}}</a></h3>
                                                     <div class="post-meta-wrapper">
                                                         <div class="post-meta">
                                                             <div class="content">
@@ -400,12 +399,12 @@
                     <div class="content-block post-list-view axil-control is-active mt--30">
 
                             <div class="post-thumbnail">
-                                <a href="post-details.html">
+                                <a href="">
                                     <img src="{{$item->getMedia('about_images')[0]->getUrl()}}" alt="Post Images">
                                 </a>
                             </div>
                             <div class="post-content">
-                                <h4 class="title"><a href="post-details.html">{{$item->title}}</a></h4>
+                                <h4 class="title"><a href="">{{$item->title}}</a></h4>
                                 <div>
                                     {{$item->description}}
                                 </div>
@@ -452,7 +451,7 @@
                         <!-- Start Post List  -->
                         <div class="content-block post-default image-rounded mt--30">
                             <div class="post-thumbnail">
-                                <a href="post-details.html">
+                                <a href="">
                                     <img src="{{$item->getMedia('category_images')[0]->getUrl()}}" alt="Post Images">
                                 </a>
                                 <a class="video-popup position-top-center" href="{{$item->video_link}}"><span
@@ -532,9 +531,8 @@
 
                     <div class="col-lg-4 col-md-4">
                         <div class="logo">
-                            <a href="index.html">
-                                <img class="dark-logo" src="assets/images/logo/logo-black.png" alt="Logo Images">
-                                <img class="white-logo" src="assets/images/logo/logo-white2.png" alt="Logo Images">
+                            <a>
+                                <img class="dark-logo" src="{{$setting->getMedia('settings_images')[0]->getUrl()}}" alt="Logo Images">
                             </a>
                         </div>
                     </div>
@@ -542,12 +540,11 @@
                     <div class="col-lg-8 col-md-8">
                         <!-- Start Post List  -->
                         <div class="d-flex justify-content-start mt_sm--15 justify-content-md-end align-items-center flex-wrap">
-                            <h5 class="follow-title mb--0 mr--20">Follow Us</h5>
-                            <ul class="social-icon color-tertiary md-size justify-content-start">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                           <ul class="social-icon color-tertiary md-size justify-content-start">
+                                <li><a href="{{$setting->faceBook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="{{$setting->linkedin}}"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="{{$setting->twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="{{$setting->instagram}}"><i class="fab fa-linkedin-in"></i></a></li>
                             </ul>
                         </div>
                         <!-- End Post List  -->
@@ -562,50 +559,9 @@
         <div class="copyright-area">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-9 col-md-8">
-                        <div class="copyright-left">
-                            <ul class="mainmenu justify-content-start">
-                                <li>
-                                    <a class="hover-flip-item-wrapper" href="#">
-                                            <span class="hover-flip-item">
-                                        <span data-text="Contact Us">Contact Us</span>
-                                            </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="hover-flip-item-wrapper" href="#">
-                                            <span class="hover-flip-item">
-                                        <span data-text="Terms of Use">Terms of Use</span>
-                                            </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="hover-flip-item-wrapper" href="#">
-                                            <span class="hover-flip-item">
-                                        <span data-text="AdChoices">AdChoices</span>
-                                            </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="hover-flip-item-wrapper" href="#">
-                                            <span class="hover-flip-item">
-                                        <span data-text="Advertise with Us">Advertise with Us</span>
-                                            </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="hover-flip-item-wrapper" href="#">
-                                            <span class="hover-flip-item">
-                                        <span data-text="Blogar Store">Blogar Store</span>
-                                            </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                     <div class="col-lg-3 col-md-4">
                         <div class="copyright-right text-start text-md-end mt_sm--20">
-                            <p class="b3">All Rights Reserved © 2022</p>
+                            <p class="b3">كل الحقوق محفوطه</p>
                         </div>
                     </div>
                 </div>

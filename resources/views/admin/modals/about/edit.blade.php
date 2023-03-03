@@ -9,7 +9,7 @@
             <form class="mt-0" action="{{route('admin.about.update')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-                    <input value="{{$about_data->id}}" type="hidden" name="id">
+                    <input value="" type="hidden" id="id" name="id">
                     <div class="row">
                         <label for="exampleFormControlTitle">@lang('dashboard.about_title')</label>
                         <div class="col-md-12 mb-4">
@@ -17,7 +17,7 @@
                                 type="text"
                                 name="title"
                                 id="title"
-                                value="{{$about_data->title}}"
+                                value=""
                                 class="form-control"
                             >
                             <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@
                         <div class="col-md-12 mb-4">
 
                             <label for="exampleFormControlTextarea3">@lang('dashboard.about_description')</label>
-                            <textarea name="description" placeholder="{{$about_data->description}}"
+                            <textarea name="description" placeholder=""
                                       id="description" class="form-control"  rows="7"></textarea>
                             <span class="invalid-feedback" role="alert">
                                 <strong id="phone_error"></strong>
@@ -44,9 +44,10 @@
                             <span class="invalid-feedback" role="alert">
                                 <strong id="phone_error"></strong>
                             </span>
+
                         </div>
                         <div class="col-md-12 mb-4">
-                            <img width="120px" height="120px"  src="{{$row->getMedia('about_images')[0]->getUrl()}}" class="img-thumbnail" alt="...">
+                            <img id="about_image" width="120px" height="120px"  src="" class="img-thumbnail" alt="...">
                             <div/>
                         </div>
                     </div>

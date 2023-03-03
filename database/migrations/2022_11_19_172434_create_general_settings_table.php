@@ -15,24 +15,15 @@ return new class extends Migration
     {
         Schema::create('general_settings', function (Blueprint $table) {
             $table->id();
-            $table->float('maxDiscount')->nullable()->default(0);
-            $table->float('VAT')->nullable()->default(0);
             $table->string('title')->nullable();
-            $table->string('taxNumber')->nullable();
-            $table->text('address')->nullable();
             $table->string('phoneNumber')->nullable();
-            $table->string('email')->nullable();
-            $table->text('invoiceFooter')->nullable();
             $table->string('black_logo')->nullable();
-            $table->string('white_logo')->nullable();
+            $table->string('faceBook')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
             $table->timestamps();
         });
-        \App\Models\GeneralSetting::create(
-            [
-                'maxDiscount' => 20.00,
-                'VAT' => 15.00,
-            ]
-        );
     }
 
     /**

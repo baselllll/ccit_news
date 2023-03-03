@@ -61,11 +61,21 @@
                                             <a href="{{route('admin.category.delete',['id'=>$row->id])}}" class="action-btn btn-delete bs-tooltip" data-toggle="tooltip" data-placement="top" title="@lang('dashboard.contact_delete')" data-bs-original-title="حذف">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                                             </a>
-                                            <a id="editCategory" href="{{route('admin.category.update',['id'=>$row->id])}}"  class="action-btn btn-edit bs-tooltip me-2" data-toggle="tooltip" data-placement="top" title="{{__('dashboard.category_edit')}}" data-bs-original-title="تعديل">
+                                            <a
+                                                href="#editCategoryModal"
+                                                data-toggle="modal"
+                                                id="editCategory"
+                                               data-title="{{ $row->title }}"
+                                               data-id="{{ $row->id }}"
+                                               data-content="{{ $row->content }}"
+                                               data-image="{{ $row->getMedia('category_images')[0]->getUrl() }}"
+                                               data-type="{{ $row->type }}"
+                                               data-video_link="{{$row->video_link}}"
+                                               class="action-btn btn-edit bs-tooltip me-2"  data-placement="top" title="{{__('dashboard.category_edit')}}" data-bs-original-title="تعديل">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                                             </a>
+
                                         </div>
-                                        @include('admin.modals.category.edit',['category_data' => $row])
                                     </td>
                                 </tr>
                             @endforeach
@@ -76,6 +86,7 @@
             </div>
         </div>
         @include('admin.modals.category.create')
+        @include('admin.modals.category.edit')
     </div>
 @endsection
 @section('scripts')

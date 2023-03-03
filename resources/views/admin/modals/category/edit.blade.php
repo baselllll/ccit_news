@@ -1,10 +1,10 @@
 <div class="modal animated fadeInUp custo-fadeInUp bd-example-modal-lg" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="createAboutModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form class="mt-0" action="{{route('admin.category.update')}}" method="POST" enctype="multipart/form-data">
+                <form class="mt-0" id="category_form" action="{{route('admin.category.update')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-                    <input value="{{$category_data->id}}" type="hidden" name="id">
+                    <input value="" type="hidden" id="id" name="id">
                     <div class="row">
 
                         <label for="exampleFormControlTitle">@lang('dashboard.category_title')</label>
@@ -13,7 +13,7 @@
                                 type="text"
                                 name="title"
                                 id="title"
-                                value="{{$category_data->title}}"
+                                value=""
                                 class="form-control"
                             >
                             <span class="invalid-feedback" role="alert">
@@ -24,7 +24,7 @@
                         <div class="col-md-12 mb-4">
 
                             <label for="exampleFormControlTextarea3">@lang('dashboard.category_content')</label>
-                            <textarea name="content" placeholder="{{$category_data->content}}"
+                            <textarea name="content" placeholder=""
                                       id="content" class="form-control"  rows="7"
                             style="width: 749px;margin-right: 3px;"
                             ></textarea>
@@ -37,7 +37,7 @@
                             <input
                                 type="text"
                                 name="type"
-                                value="{{$category_data->type}}"
+                                value=""
                                 id="type"
                                 class="form-control"
                             >
@@ -58,14 +58,14 @@
                             </span>
                         </div>
                         <div class="col-md-12 mb-4">
-                            <img width="120px" height="120px"  src="{{$row->getMedia('category_images')[0]->getUrl()}}" class="img-thumbnail" alt="...">
+                            <img width="120px" height="120px" id="image"  src="" class="img-thumbnail" alt="...">
                             <div/>
                         </div>
                         <div class="col-md-12 mb-4">
                             <label for="exampleFormControlTitle">@lang('dashboard.category_video')</label>
                             <input
                                 type="text"
-                                value="{{$category_data->video_link}}"
+                                value=""
                                 name="video_link"
                                 id="video_link"
                                 class="form-control"

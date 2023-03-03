@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Setting\DeleteContactRequest;
 use App\Repositories\GeneralSettingRepository;
+use Illuminate\Http\Request;
 
 
 class GeneralSettingsController extends Controller
@@ -20,17 +21,9 @@ class GeneralSettingsController extends Controller
         return view('admin.pages.settings.index',compact('settings'));
     }
 
-    public function update(DeleteContactRequest $request)
+    public function update(Request $request)
     {
         $settings = $this->generalSettingRepo->update($request->all());
-        $urls = [
-            'black_logo_url' => asset('storage/'.$settings?->black_logo),
-            'white_logo_url' => asset('storage/'.$settings?->white_logo),
-        ];
-        return response([
-            'settings' => $settings,
-            'urls'=> $urls,
-            'message' => __('apiMessages.settings.updated'),
-        ],200);
+        return redirect()->back()->with('success', __('apiMessages.support.updated'));
     }
 }

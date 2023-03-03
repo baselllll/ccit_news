@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
             <a class="align-self-center">
-                <img src="{{ asset('storage/'. $settings?->black_logo) }}">
+                <img height="80px" width="150px" style="border-radius: 50px" src="{{asset("front/assets/images/logo/dashboard_icon.png")}}" alt="logo">
             </a>
 
             <div class="card mt-3 mb-3">

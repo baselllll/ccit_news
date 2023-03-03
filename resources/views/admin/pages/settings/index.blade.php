@@ -52,7 +52,7 @@
                         <div class="tab-pane fade show active" id="animated-underline-home" role="tabpanel" aria-labelledby="animated-underline-home-tab">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                    <form class="section general-info" id="editForm" class="mt-0" method="POST" enctype="multipart/form-data">
+                                    <form action="{{route('admin.settings.update')}}" class="section general-info"  class="mt-0" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="info">
                                             <div class="row">
@@ -60,7 +60,7 @@
 
                                                     <div class="row">
                                                         <div class="col-md-6 mb-4">
-                                                            <label>اسم المتجر</label>
+                                                            <label>اسم الموقع</label>
                                                             <input
                                                                 type="text"
                                                                 name="title"
@@ -75,19 +75,98 @@
                                                         </div>
 
                                                         <div class="col-md-6 mb-4">
-                                                            <label>الرقم الضريبي</label>
+                                                            <label>رقم تليفون</label>
                                                             <input
                                                                 type="text"
-                                                                name="taxNumber"
-                                                                value="{{ $settings?->taxNumber }}"
+                                                                name="phoneNumber"
+                                                                value="{{ $settings?->phoneNumber }}"
                                                                 id="taxNumber"
                                                                 class="form-control"
                                                                 style="direction: rtl"
-                                                                placeholder="الرقم الضريبي">
+                                                                placeholder="رقم التليفون">
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong id="taxNumber_error"></strong>
                                                             </span>
                                                         </div>
+
+                                                        <div class="col-md-6 mb-4">
+                                                            <label>ايميل الفيس بوك</label>
+                                                            <input
+                                                                type="text"
+                                                                name="faceBook"
+                                                                value="{{ $settings?->faceBook }}"
+                                                                id="faceBook"
+                                                                class="form-control"
+                                                                style="direction: rtl"
+                                                                placeholder="ايميل الفيس بوك">
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong id="taxNumber_error"></strong>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md-6 mb-4">
+                                                            <label>ايميل اللينكد</label>
+                                                            <input
+                                                                type="text"
+                                                                name="linkedin"
+                                                                value="{{ $settings?->linkedin }}"
+                                                                id="linkedin"
+                                                                class="form-control"
+                                                                style="direction: rtl"
+                                                                placeholder="ايميل الفيس بوك">
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong id="taxNumber_error"></strong>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md-6 mb-4">
+                                                            <label>ايميل التويتر</label>
+                                                            <input
+                                                                type="text"
+                                                                name="twitter"
+                                                                value="{{ $settings?->twitter }}"
+                                                                id="twitter"
+                                                                class="form-control"
+                                                                style="direction: rtl"
+                                                                placeholder="رقم التليفون">
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong id="taxNumber_error"></strong>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md-6 mb-4">
+                                                            <label>ايميل الانستجرام</label>
+                                                            <input
+                                                                type="text"
+                                                                name="instagram"
+                                                                value="{{ $settings?->instagram }}"
+                                                                id="instagram"
+                                                                class="form-control"
+                                                                style="direction: rtl"
+                                                                placeholder="ايميل الانستجرام">
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong id="taxNumber_error"></strong>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md-6 mb-4">
+                                                            <div class="col-md-12 mb-4">
+                                                                <label for="exampleFormControlTitle">@lang('dashboard.about_image')</label>
+                                                                <input
+                                                                    type="file"
+                                                                    name="image"
+                                                                    id="image"
+                                                                    class="form-control"
+                                                                >
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong id="phone_error"></strong>
+                                                                </span>
+                                                            </div>
+                                                            @if(isset($settings->getMedia('settings_images')[0]))
+                                                                <div class="col-md-12 mb-4">
+                                                                    <img width="200px" height="200px"  src="{{$settings->getMedia('settings_images')[0]->getUrl()}}" class="img-thumbnail" alt="...">
+                                                                    <div/>
+                                                                </div>
+                                                            @endif
+
+                                                        </div>
+
                                                     </div>
 
                                                     <button type="submit" class="btn btn-primary mt-2 mb-2 btn-no-effect"><i class="far fa-check-circle"></i> @lang('dashboard.saveChanges')</button>

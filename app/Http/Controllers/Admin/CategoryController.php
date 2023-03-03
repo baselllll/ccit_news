@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\CreateCategoryRequest;
+use App\Models\Category;
 use App\Repositories\CategoryRepository;
 use App\Http\Controllers\Controller;
 class CategoryController extends Controller
@@ -40,5 +41,9 @@ class CategoryController extends Controller
         } catch (\Exception $e){
             return redirect()->back()->with('success', __('apiMessages.support.error'));
         }
+    }
+    public function editView($id){
+        $category_data = Category::find($id);
+        return view('admin.modals.category.edit',compact('category_data'));
     }
 }

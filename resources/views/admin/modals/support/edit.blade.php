@@ -4,7 +4,7 @@
             <form class="mt-0" action="{{route('admin.support.update')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-                    <input value="{{$support_data->id}}" type="hidden" name="id">
+                    <input value=""  id="id" type="hidden" name="id">
                     <div class="row">
 
                         <label for="exampleFormControlTitle">@lang('dashboard.support_name')</label>
@@ -13,7 +13,7 @@
                                 type="text"
                                 name="name"
                                 id="name"
-                                value="{{$support_data->name}}"
+                                value=""
                                 class="form-control"
                             >
                             <span class="invalid-feedback" role="alert">
@@ -24,7 +24,7 @@
                         <div class="col-md-12 mb-4">
 
                             <label for="exampleFormControlTextarea3">@lang('dashboard.support_description')</label>
-                            <textarea name="description" placeholder="{{$support_data->description}}"
+                            <textarea name="description" placeholder=""
                                       id="description" class="form-control"  rows="7"></textarea>
                             <span class="invalid-feedback" role="alert">
                                 <strong id="phone_error"></strong>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="col-md-12 mb-4">
                             @if(isset($row->media))
-                                <img width="120px" height="120px"  src="{{$row->getMedia('support_images')[0]->getUrl()}}" class="img-thumbnail" alt="...">
+                                <img id="support_image"  width="120px" height="120px"  src="" class="img-thumbnail" alt="...">
                             @else
                                 not image
                             @endif

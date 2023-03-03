@@ -5,7 +5,7 @@
             <div class="nav-logo">
                 <div class="nav-item theme-logo">
                     <a href="{{ route('admin.dashboard') }}">
-                        <img src="{{ asset('storage/'. $settings?->white_logo) }}" alt="logo">
+                        <img height="60px" width="80px" style="border-radius: 50px;margin-right: 59px;" src="{{asset("front/assets/images/logo/dashboard_icon.png")}}" alt="logo">
                     </a>
                 </div>
             </div>
