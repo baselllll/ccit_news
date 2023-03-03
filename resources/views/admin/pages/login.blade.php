@@ -8,7 +8,6 @@
             <a class="align-self-center">
                 <img height="80px" width="150px" style="border-radius: 50px" src="{{asset("front/assets/images/logo/dashboard_icon.png")}}" alt="logo">
             </a>
-
             <div class="card mt-3 mb-3">
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.authenticateAdmin') }}">
