@@ -20,4 +20,12 @@ class HomePageController extends Controller
         $setting = GeneralSetting::with('media')->first();
         return view('front.index',compact('category','setting','categories','supporters','all_categories_data','about'));
     }
+
+    public function newsDetail($id){
+        $category = Category::with('media')->where('id',$id)->first();
+        $category_data = Category::with('media')->get();
+        $setting = GeneralSetting::with('media')->first();
+        $categories = Category::distinct('type')->with('media')->latest()->get();
+        return view('front.news-detail',compact('category','setting','category_data','categories'));
+    }
 }

@@ -12,6 +12,7 @@ use App\Http\Controllers\Front\CategoryController;
 Route::group(['prefix'=>RouteServiceProvider::Front], function (){
     Route::get('/about-us',[AboutUsController::class,'index'])->name('front.about');
     Route::get('/home',[HomePageController::class,'index'])->name('front.home');
+    Route::get('/news-detail/{id}',[HomePageController::class,'newsDetail'])->name('front.news-detail');
     Route::get('/contact-us',[ContactUsController::class,'index'])->name('front.contact');
     Route::post('/contact-us-store',[ContactUsController::class,'store'])->name('front.contact.store');
     Route::get('/category',[CategoryController::class,'index'])->name('front.category');
